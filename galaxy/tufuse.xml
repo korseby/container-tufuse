@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Proposed Tool Section: [Image Processing]-->
+<tool id="tufuse" name="TuFuse" version="1.60">
+  <requirements>
+    <container type="docker">korseby/tufuse</container>
+  </requirements>
+  <description>Perform Two Stage Exposure and Focus Blending</description>
+  <command><![CDATA[
+export infile_names=' 
+#for $infile in $infiles: 
+${infile.name},
+#end for
+';
+for i in `echo \$infile_names | perl -pe 's/ /_/g' | perl -pe 's/\,_/\n/g'`; do echo \$i >> /tmp/infiles.name.txt; done;
+for infile in `echo $infiles | perl -pe 's/\,/\n/g'`; do echo \$infile >> /tmp/infiles.txt; done;
+export inlength=`cat /tmp/infiles.txt | wc -l`;
+if [ \$inlength -ne `cat /tmp/infiles.name.txt | wc -l` ]; then echo "Error. Number of files and files.name are not equal."; exit 1; fi;
+mkdir -p /tmp/collection;
+cd /tmp/collection;
+for i in `cat /tmp/infiles.txt`; do ln -s \$i `basename \$i .dat`.tif; done;
+/usr/bin/wine /usr/share/tufuse/TuFuse.exe -o _outfile.tif *.tif;
+sudo cp _outfile.tif $outfile;
+rm -rf /tmp/collection;
+  ]]>
+  </command>
+  <inputs>
+    <param name="infiles" type="data" format="tiff" optional="False" multiple="True" label="Image Stack" />
+  </inputs>
+  <outputs>
+    <data name="outfile" type="data" format="tiff" metadata_source="infiles" label="${tool.name} output" />
+  </outputs>
+  <help>Perform extended DoF focus stacking and create an image from a stacked image collection.</help>
+</tool>
+
