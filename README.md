@@ -32,6 +32,5 @@ TuFuse writes output in TIFF format. TuFuse can read both 8 bit JPEG and 8/16 bi
 [5] - R. J. Pieper RJ and A. Korpel (1983): Image processing for extended depth of field. Applied Optics 22(10): 1449-1453. doi:10.1364/AO.22.001449
 
 ## Software availability
-The original software is available here: http://www.tawbaware.com/tufuse.htm
-TuFuse is described as freeware.
+TuFuse was written and released by Max Lyons and is described as freeware. The original software is available here: http://www.tawbaware.com/tufuse.htm
 
