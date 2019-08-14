@@ -22,9 +22,13 @@ When performing exposure blending, TuFuse weights pixels based on how well-expos
 TuFuse writes output in TIFF format. TuFuse can read both 8 bit JPEG and 8/16 bit TIFF files as input. TIFF files should have 3 or 4 channels per pixel stored in strip format (i.e. most TIFF files).
 
 [1] - Tom Mertens, Jan Kautz and Frank Van Reeth (2009): Exposure Fusion: A Simple and Practical Alternative to High Dynamic Range Photography. Computer Graphics Forum 28(1): 161-171, doi:10.1111/j.1467-8659.2008.01171.x
+
 [2] - https://github.com/Mericam/exposure-fusion
+
 [3] - Peter J. Burt and Edward H. Adelson (1983): A Multiresolution Spline With Application to Image Mosaics. ACM Transactions on Graphics 2(4): 217-236. http://ai.stanford.edu/~kosecka/burt-adelson-spline83.pdf
+
 [4] - J. M. Ogden, E. H. Adelson, J. R. Bergen and P. J. Burt (1985): Pyramid-Based Computer Graphics. RCA Engineer 30(5): 4-15. http://cholla.mmto.org/minerals/photos/RCA85.pdf
+
 [5] - R. J. Pieper RJ and A. Korpel (1983): Image processing for extended depth of field. Applied Optics 22(10): 1449-1453. doi:10.1364/AO.22.001449
 
 ## Software availability
